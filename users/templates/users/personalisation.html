@@ -1,0 +1,48 @@
+{% extends 'main/layout.html'%}
+{% block title %}Персонализация{% endblock %}
+{% block content %}
+    {% for st in student%}
+        {% if request.user == st.user%}
+        <div class="features">
+            <h1>{{st.name}}</h1>
+            <p class="desc">Роль : Ученик</p>
+            <p class="desc">Инструмент : {{st.instrument}}</p>
+            <p class="desc">Год обучения : {{st.grade_of_school}}</p>
+            <p class="desc">Имя пользователя : {{st.user}}</p>
+            <p class="desc">Электронная почта : {{st.email}}</p>
+            <p class="desc">Учителя : </p>
+            {% for i in teacher%}
+                <p class="desc">Имя преподавателя : {{i.name}}</p>
+                <p class="desc">Инструмент преподавателя : {{i.instrument}}</p>
+            {% endfor %}
+        </div>
+    <a href="{% url 'modal' %}" class="update">
+        <span>Изменить данные</span>
+    </a>
+        {% endif %}
+    {% endfor %}
+
+    {% for t in teacher%}
+        {% if request.user == t.user%}
+        <div class="features">
+            <h1>{{t.name}}</h1>
+            <p class="desc">Роль : Преподаватель</p>
+            <p class="desc">Инструмент : {{t.instrument}}</p>
+            <p class="desc">Имя пользователя : {{t.user}}</p>
+            <p class="desc">Электронная почта : {{t.email}}</p>
+            <p class="desc">Учинеки : </p>
+            {% for i in student%}
+                <p class="desc">Имя ученика : {{i.name}}</p>
+                <p class="desc">Инструмент ученика : {{i.instrument}}</p>
+            {% endfor %}
+        </div>
+    <a href="{% url 'modal' %}" class="update">
+        <span>Изменить данные</span>
+    </a>
+        {% endif %}
+    {% endfor %}
+
+
+
+
+{% endblock %}

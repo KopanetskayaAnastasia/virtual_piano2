@@ -1,0 +1,208 @@
+{% extends 'main/layout.html'%}
+{% block title %}
+    Главная
+{%endblock%}
+{% block content %}
+{% load static %}
+<div class="contents container">
+  <div class="row">
+    <menu class="col-3">
+        <h2>Меню</h2>
+      <ul>
+          <li><a href="{% url 'personalisation'%}">Личный кабинет</a></li>
+          <div>Уроки:</div>
+              <ul>
+                  <li><a href="{% url 'musical_lit'%}">Музыкальная литература</a></li>
+                  <li><a href="{% url 'solfeggio'%}">Сольфеджио</a></li>
+              </ul>
+
+          <li><a href="{% url 'composition'%}">Мои произведения</a></li>
+          <div>Инструменты:</div>
+              <ul>
+                  <li><a href="{% url 'home'%}">Пианино</a></li>
+                  <li><a href="{% url 'home'%}">Гитара</a></li>
+                  <li><a href="{% url 'home'%}">Скрипка</a></li>
+                  <li><a href="{% url 'home'%}">Барабаны</a></li>
+              </ul>
+          <li><a href="{% url 'home'%}">Тесты</a></li>
+      </ul>
+    </menu>
+
+
+    <div class="piano col-9">
+      <div class="container">
+        <div class="keys row">
+
+                <button class="col-xl col-md  col-sm  key key-w C " data-sound="C">C</button>
+                <button class="col-xl col-md  col-sm  key key-b Cs " data-sound="Cs">C#</button>
+                <button class="col-xl col-md  col-sm  key key-w D " data-sound="D">D</button>
+                <button class="col-xl col-md  col-sm  key key-b Ds " data-sound="Ds">D#</button>
+                <button class="col-xl col-md  col-sm  key key-w E " data-sound="E">E</button>
+                <button class="col-xl col-md  col-sm  key key-w F " data-sound="F">F</button>
+                <button class="col-xl col-md  col-sm  key key-b Fs " data-sound="Fs">F#</button>
+                <button class="col-xl col-md  col-sm  key key-w G " data-sound="G">G</button>
+                <button class="col-xl col-md  col-sm  key key-b Gs " data-sound="Gs">G#</button>
+                <button class="col-xl col-md  col-sm  key key-w A " data-sound="A">A</button>
+                <button class="col-xl col-md  col-sm  key key-b As " data-sound="As">A#</button>
+                <button class="col-xl col-md  col-sm  key key-w B " data-sound="B">B</button>
+
+
+
+                <button class="col-xl col-md  col-sm  key key-w C1 " data-sound="C1">C</button>
+                <button class="col-xl  col-md  col-sm  key key-b Cs1 " data-sound="Cs1">C#</button>
+                <button class="col-xl  col-md  col-sm  key key-w D1 " data-sound="D1">D</button>
+                <button class="col-xl  col-md  col-sm  key key-b Ds1 " data-sound="Ds1">D#</button>
+                <button class="col-xl  col-md  col-sm  key key-w E1 " data-sound="E1">E</button>
+                <button class="col-xl  col-md  col-sm  key key-w F1 " data-sound="F1">F</button>
+                <button class="col-xl  col-md  col-sm  key key-b Fs1 " data-sound="Fs1">F#</button>
+                <button class="col-xl  col-md  col-sm  key key-w G1 " data-sound="G1">G</button>
+                <button class="col-xl  col-md  col-sm  key key-b Gs1 " data-sound="Gs1">G#</button>
+                <button class="col-xl  col-md  col-sm  key key-w A1 " data-sound="A1">A</button>
+                <button class="col-xl  col-md  col-sm  key key-b As1 " data-sound="As1">A#</button>
+                <button class="col-xl  col-md  col-sm  key key-w B1 " data-sound="B1">B</button>
+
+
+
+                <button class="col-xl col-md  col-sm  key key-w C2" data-sound="C">C</button>
+                <button class="col-xl  col-md  col-sm  key key-b Cs2" data-sound="Cs">C#</button>
+                <button class="col-xl  col-md  col-sm  key key-w D2 " data-sound="D">D</button>
+                <button class="col-xl  col-md  col-sm  key key-b Ds2 " data-sound="Ds">D#</button>
+                <button class="col-xl  col-md  col-sm  key key-w E2 " data-sound="E">E</button>
+                <button class="col-xl  col-md  col-sm  key key-w F2 " data-sound="F">F</button>
+                <button class="col-xl  col-md  col-sm  key key-b Fs2 " data-sound="Fs">F#</button>
+                <button class="col-xl  col-md  col-sm  key key-w G2 " data-sound="G">G</button>
+                <button class="col-xl  col-md  col-sm  key key-b Gs2 " data-sound="Gs">G#</button>
+                <button class="col-xl  col-md  col-sm  key key-w A2 " data-sound="A">A</button>
+                <button class="col-xl  col-md  col-sm  key key-b As2 " data-sound="As">A#</button>
+                <button class="col-xl  col-md  col-sm  key key-w B2 " data-sound="B">B</button>
+
+
+                <audio id="C" >
+                    <source src="{% static 'audio/c3.mp3'%}" type="audio/mpeg" />
+                </audio>
+				<audio id="Cs" >
+                    <source src="{% static 'audio/c+3.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="D" >
+                    <source src="{% static 'audio/d3.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="Ds" >
+                    <source src="{% static 'audio/d+3.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="E" >
+                    <source src="{% static 'audio/e3.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="F" >
+                    <source src="{% static 'audio/f3.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="Fs" >
+                    <source src="{% static 'audio/f+3.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="G" >
+                    <source src="{% static 'audio/g3.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="Gs" >
+                    <source src="{% static 'audio/g+3.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="A" >
+                    <source src="{% static 'audio/a4.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="As" >
+                    <source src="{% static 'audio/a+4.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="B" >
+                    <source src="{% static 'audio/b4.mp3'%}" type="audio/mpeg"/>
+                </audio>
+
+
+				<audio id="C1" >
+                    <source src="{% static 'audio/c4.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="Cs1" >
+                    <source src="{% static 'audio/c+4.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="D1" >
+                    <source src="{% static 'audio/d4.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="Ds1" >
+                    <source src="{% static 'audio/d+4.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="E1" >
+                    <source src="{% static 'audio/e4.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="F1" >
+                    <source src="{% static 'audio/f4.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="Fs1" >
+                    <source src="{% static 'audio/f+4.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="G1" >
+                    <source src="{% static 'audio/g4.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="Gs1" >
+                    <source src="{% static 'audio/g+4.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="A1" >
+                    <source src="{% static 'audio/a5.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="As1" >
+                    <source src="{% static 'audio/a+5.mp3'%}" type="audio/mpeg"/>
+                </audio>
+				<audio id="B1" >
+                    <source src="{% static 'audio/b5.mp3'%}" type="audio/mpeg"/>
+                </audio>
+
+                <script>
+
+
+
+document.addEventListener('keydown', function(e){
+const arr=new Map([
+  ['q','C'],['2','Cs'],['w','D'],['3','Ds'],['e','E'],
+  ['z','F'],['s','Fs'],['x','G'],['d','Gs'],['c','A'],['f','As'],['v','B'],
+
+  ['n','C1'],['j','Cs1'],['m','D1'],['k','Ds1'],[',','E1'],
+  ['i','F1'],['9','Fs1'],['o','G1'],['0','Gs1'],['p','A1'],['-','As1'],['[','B1'],
+
+  ['r','C1'],['5','Cs1'],['t','D1'],['6','Ds1'],['y','E1'],
+  ['u','F1'],['8','Fs1'],['a','G1'],['.','Gs1'],['/','A1'],[';','As1'],['l','B1']
+
+]);
+let k = document.querySelectorAll('.key');
+  if (e.repeat === false) {
+    k.forEach(key =>
+    {
+      for(let pair of arr.entries())
+      {
+        if (e.key===pair[0] && key.classList.contains(pair[1]))
+        {
+            let f = document.querySelector("."+pair[1]);
+            f.click();
+        }
+      }
+    })
+  }
+})
+
+
+
+let ke = document.querySelectorAll('.key');
+ke.forEach(key => {
+ key.addEventListener('click', playSound);
+});
+
+function playSound(e) {
+ let key = e.target;
+ let sound = document.getElementById(key.dataset.sound);
+ sound.currentTime = 0;
+ sound.play();
+}
+
+
+                </script>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+{%endblock%}
